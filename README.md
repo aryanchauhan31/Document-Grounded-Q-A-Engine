@@ -1,0 +1,1 @@
+LLM RAG Ops: LlamaIndex + HF Inference [GitHub] — Built a retrieval‑augmented QA system with reproducible data ingestion, vector indexing, persisted storage, and a lightweight evaluation harness that writes normalized predictions to answers.json for batch analysis.​
