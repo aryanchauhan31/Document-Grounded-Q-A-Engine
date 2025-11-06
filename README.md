@@ -63,7 +63,7 @@ Place the PDF documents you want to query into the `./Rag_dataset` directory.
 
 ### 3. Run the RAG Pipeline
 
-All the logic is contained within the main Jupyter Notebook (`Untitled63.ipynb`). Open and run the notebook cells in order to:
+All the logic is contained within the main Jupyter Notebook (`engine.ipynb`). Open and run the notebook cells in order to:
 1.  Load the documents.
 2.  Build the vector index.
 3.  Instantiate the query engine.
