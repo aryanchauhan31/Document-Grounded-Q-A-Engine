@@ -47,14 +47,6 @@ The project operates as a monolithic application within a Python environment.
 
 ### 1. Installation
 
-Clone the repository and install the necessary dependencies.
-
-```
-git clone <your-repo-url>
-cd <your-repo-name>
-pip install -r requirements.txt
-```
-
 **`requirements.txt`:**
 ```
 llama-index
