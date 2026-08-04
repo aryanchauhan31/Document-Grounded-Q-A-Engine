@@ -1,0 +1,26 @@
+# Inference serving
+vllm
+ray[serve]
+
+# RAG / orchestration
+llama-index-core
+llama-index-llms-openai-like
+llama-index-embeddings-huggingface
+llama-index-retrievers-bm25
+llama-index-vector-stores-pinecone
+sentence-transformers
+
+# Vector DB
+pinecone
+
+# Dataset + tracing
+datasets
+arize-phoenix
+
+# Serving layer (legacy single-process variant, see chatbot_rag.py / engine.py)
+fastapi
+uvicorn[standard]
+transformers
+torch
+accelerate
+bitsandbytes

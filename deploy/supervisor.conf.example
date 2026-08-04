@@ -1,0 +1,77 @@
+# Supervisor program blocks for the four services in deploy/*.sh.
+# Each corresponds 1:1 with a wrapper script of the same name.
+# Drop these into /etc/supervisor/conf.d/<name>.conf on the target box,
+# then `supervisorctl reread && supervisorctl update`.
+#
+# autorestart=true (not the supervisor default of "unexpected") is
+# deliberate: vLLM occasionally exits 0 on external SIGTERM during
+# supervisor config reloads, which "unexpected" would treat as an
+# intentional stop and never restart. See README's "Real infra bugs".
+
+[program:vllm]
+environment=PROC_NAME="%(program_name)s"
+command=/opt/supervisor-scripts/vllm.sh
+autostart=true
+autorestart=true
+exitcodes=0
+startsecs=30
+stopasgroup=true
+killasgroup=true
+stopsignal=TERM
+stopwaitsecs=15
+stdout_logfile=/dev/stdout
+redirect_stderr=true
+stdout_events_enabled=true
+stdout_logfile_maxbytes=0
+stdout_logfile_backups=0
+
+[program:vllm2]
+environment=PROC_NAME="%(program_name)s"
+command=/opt/supervisor-scripts/vllm2.sh
+autostart=true
+autorestart=true
+exitcodes=0
+startsecs=30
+stopasgroup=true
+killasgroup=true
+stopsignal=TERM
+stopwaitsecs=15
+stdout_logfile=/dev/stdout
+redirect_stderr=true
+stdout_events_enabled=true
+stdout_logfile_maxbytes=0
+stdout_logfile_backups=0
+
+[program:judge]
+environment=PROC_NAME="%(program_name)s"
+command=/opt/supervisor-scripts/judge.sh
+autostart=true
+autorestart=true
+exitcodes=0
+startsecs=30
+stopasgroup=true
+killasgroup=true
+stopsignal=TERM
+stopwaitsecs=15
+stdout_logfile=/dev/stdout
+redirect_stderr=true
+stdout_events_enabled=true
+stdout_logfile_maxbytes=0
+stdout_logfile_backups=0
+
+[program:rayserve]
+environment=PROC_NAME="%(program_name)s"
+command=/opt/supervisor-scripts/rayserve.sh
+autostart=true
+autorestart=true
+exitcodes=0
+startsecs=15
+stopasgroup=true
+killasgroup=true
+stopsignal=TERM
+stopwaitsecs=15
+stdout_logfile=/dev/stdout
+redirect_stderr=true
+stdout_events_enabled=true
+stdout_logfile_maxbytes=0
+stdout_logfile_backups=0

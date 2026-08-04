@@ -1,0 +1,7 @@
+.claude/
+__pycache__/
+*.pyc
+.env
+storage/
+Rag_dataset/
+cuad_eval_results.json
